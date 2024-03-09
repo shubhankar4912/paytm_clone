@@ -48,7 +48,7 @@ const signinBody=zod.object({
     username: zod.string().email(),
 	password: zod.string()
 })
-router.post("/sigin",async (req,res)=>{
+router.post("/signin",async (req,res)=>{
     const {success}=signinBody.safeParse(req.body)
     if(!success){
         return res.status(411).json({
@@ -73,7 +73,7 @@ router.post("/sigin",async (req,res)=>{
     })
 })
 const updateBody=zod.object({
-    password:zod.string.optional(),
+    password:zod.string().optional(),
     firstName: zod.string().optional(),
     lastName: zod.string().optional(),
 })
@@ -106,7 +106,7 @@ router.get("/bulk",async(req,res)=>{
         user:users.map(user=>({
             username:user.username,
             firstName:user.firstName,
-            lastName:user.lastNamae,
+            lastName:user.lastName,
             _id:user._id
         }))
     })
