@@ -40,6 +40,10 @@ router.post("/signup",async (req,res)=>{
     })
 
 })
+const signinBody=zod.object({
+    username: zod.string().email(),
+	password: zod.string()
+})
 router.post("/sigin",async (req,res)=>{
     const {success}=signinBody.safeParse(req.body)
     if(!success){
