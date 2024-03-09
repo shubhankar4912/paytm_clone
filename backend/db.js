@@ -30,7 +30,17 @@ const userSchema=new mongoose.Schema({
         maxLength:50
     }
 });
+const accountSchema=new mongoose.Schema({
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required:true
+    }
+})
+const Account=mongoose.model('Account',accountSchema);
 const User=mongoose.model('User',userSchema);
 module.exports={
-    User
+    User,
+    Account
+
 };
