@@ -1,2 +1,2 @@
 const JWT_SECRET="Shubhsecret"
-module.exports=JWT_SECRET
+module.exports={JWT_SECRET}
